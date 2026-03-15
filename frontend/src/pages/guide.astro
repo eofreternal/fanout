@@ -4,31 +4,69 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <main>
-    <h1>A guide to horizontally scaling websockets</h1>
+    <h1 class="title">A guide to horizontally scaling websockets</h1>
 
-    Traditionally, 1 server is used for websocket connections. This makes it
-    easy to share state. For example, if a friend sent you a DM, both your phone
-    and desktop would receive the notification. But what if you have a ton of
-    users and have to use multiple servers? Now if your desktop is on server A
-    with your friend but your phone is on server B, how would server B know that
-    your friend sent you a DM and send you a notification on your phone?
+    <p>
+      Traditionally, 1 server is used for websocket connections. This makes it
+      easy to share state. For example, if a friend sent you a DM, both your
+      phone and desktop would receive the notification because the server would
+      know which devices were connected and which devices to send the
+      notificaiton to. But what if you have a ton of users and have to use
+      multiple servers? Now if your desktop is on server A with your friend but
+      your phone is on server B, how would server B know that your friend sent
+      you a DM and send you a notification on your phone?
+    </p>
     <br />
-    Fanout is used precicely for this scenario. When server A receives the message
-    from your friend, it sends the notification to your desktop but it also sends
-    a copy to a Redis instance, which alerts server B. Server B now sends a notification
-    to your phone.
+    <p>
+      Fanout is used precicely for this scenario. When server A receives the
+      message from your friend, it sends the notification to your desktop but it
+      also sends a copy to a Redis instance, which alerts server B. Server B now
+      sends a notification to your phone.
+    </p>
 
-    <img src="/fanout/mermaid-diagram.png" />
+    <img id="diagram" src="/fanout/mermaid-diagram.png" />
+    <p>
+      This guide will be using Socket.io and Redis as the server responsible for
+      fanout.
+    </p>
+    <h2>Step 1: Set up Redis</h2>
+    <p>Install Docker first, and then run Redis with Docker</p>
 
-    This guide will be using Socket.io
+    <h2>Step 2: Boilerplate</h2>
+    <p>Insert code here</p>
 
-    <div class="separator"></div>
+    <p>Test with yaak. It works; ta-da!</p>
   </main>
+
+  <div class="separator"></div>
 </Layout>
 
 <style lang="scss">
   main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
     max-width: calc(800px - 30px * 2);
+
+    p {
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .title {
+      color: #401183;
+      padding-bottom: 2rem;
+    }
+
+    #diagram {
+      max-height: 400px;
+      align-self: center;
+    }
   }
   .separator {
     height: 2px;
