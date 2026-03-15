@@ -19,11 +19,21 @@ import Layout from "../layouts/Layout.astro";
     to your phone.
 
     <img src="/mermaid-diagram.png" />
+
+    This guide will be using Socket.io
+
+    <div class="separator"></div>
   </main>
 </Layout>
 
 <style lang="scss">
   main {
     max-width: calc(800px - 30px * 2);
+  }
+  .separator {
+    height: 2px;
+    width: 100%;
+
+    background-color: color-mix(in oklab, #401183 30%, transparent 70%);
   }
 </style>
