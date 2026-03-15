@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <h1>A guide to horizontally scaling websockets</h1>
+
+    Traditionally, 1 server is used for websocket connections. This makes it
+    easy to share state. For example, if a friend sent you a DM, both your phone
+    and desktop would receive the notification. But what if you have a ton of
+    users and have to use multiple servers? Now if your desktop is on server A
+    with your friend but your phone is on server B, how would server B know that
+    your friend sent you a DM and send you a notification on your phone?
+    <br />
+    Fanout is used precicely for this scenario. When server A receives the message
+    from your friend, it sends the notification to your desktop but it also sends
+    a copy to a Redis instance, which alerts server B. Server B now sends a notification
+    to your phone.
+
+    <img src="/mermaid-diagram.png" />
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    max-width: calc(800px - 30px * 2);
+  }
+</style>
