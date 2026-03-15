@@ -11,15 +11,30 @@ import Layout from "../layouts/Layout.astro";
         <h1>Get <span>prizes</span></h1>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <button class="submit">Submit your project</button>
         <button class="guide">Read the guide</button>
+      </div> -->
+      <div class="row">
+        <button class="rsvp">RSVP Now!</button>
+        <button id="guide">Guide is coming soon!</button>
       </div>
-
-      <span id="scroll-for-more-info">Scroll for more details</span>
     </div>
 
     <div id="body">
+      <div id="requirements">
+        <h1>What counts?</h1>
+
+        <p>
+          Anything that uses Fanout for horizontal scaling of websockets!
+          <br />
+          <br />
+          It doesn't matter what you make - it could be checkers, or chess, or battleship,
+          or a canvas for people to draw on. As long as the backend uses fanout to
+          scale, it will be accepted!
+        </p>
+      </div>
+
       <div id="how-it-works">
         <h1 id="how">How it works</h1>
 
@@ -51,22 +66,6 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="separator"></div>
-
-      <div id="requirements">
-        <h1>Requirement</h1>
-
-        <p>
-          The only requirement is that it uses Fanout for horizontal scaling of
-          websockets.
-          <br />
-          The idea is to learn how to horizontally scale websockets with Fanout -
-          a method of scaling websockets (read the guide if you have no clue how to
-          make websockets scale horizontally with fanout). It doesn't matter what
-          you make - it could be checkers, or chess, or battleship, or a canvas for
-          people to draw on. As long as the backend uses fanout to scale, it will
-          be accepted!
-        </p>
-      </div>
     </div>
   </main>
 </Layout>
@@ -95,20 +94,15 @@ import Layout from "../layouts/Layout.astro";
   main {
     .hero-header {
       position: relative;
-
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
 
-      padding-left: clamp(20px, 10vw, 200px);
-
-      height: 100vh;
-      z-index: 1;
+      padding: clamp(20px, 10vw, 200px);
 
       .tagline {
         padding-bottom: 2rem;
         h1 {
+          position: relative;
           width: 100%;
           color: #fff;
           font-size: clamp(10px, 7.5vw, 5rem);
@@ -129,20 +123,16 @@ import Layout from "../layouts/Layout.astro";
           background-color: #401183;
         }
 
-        .guide {
+        #guide {
           color: #401183;
           background-color: #fff;
         }
-      }
 
-      #scroll-for-more-info {
-        position: absolute;
-        bottom: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
+        .rsvp {
+          background-color: #401183;
 
-        font-size: 1.25rem;
-        color: #fff;
+          font-size: 28px;
+        }
       }
     }
   }
