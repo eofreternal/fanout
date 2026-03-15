@@ -16,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
         <button class="guide">Read the guide</button>
       </div> -->
       <div class="row">
-        <button class="rsvp">RSVP Now!</button>
+        <button id="rsvp">RSVP Now!</button>
         <button id="guide">Guide is coming soon!</button>
       </div>
     </div>
@@ -74,6 +74,10 @@ import Layout from "../layouts/Layout.astro";
   document.getElementById("hclogo")?.addEventListener("click", () => {
     location.href = "https://hackclub.com";
   });
+
+  document.getElementById("rsvp")?.addEventListener("click", () => {
+    location.href = "https://forms.fillout.com/t/ujrooiJM2Fus";
+  });
 </script>
 
 <style lang="scss">
@@ -128,7 +132,7 @@ import Layout from "../layouts/Layout.astro";
           background-color: #fff;
         }
 
-        .rsvp {
+        #rsvp {
           background-color: #401183;
 
           font-size: 28px;
