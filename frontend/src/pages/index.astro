@@ -1,11 +1,232 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <img src="/flag-orpheus-top.svg" id="hclogo" />
+    <div class="hero-header">
+      <div class="tagline">
+        <h1>Create a game with <span>WebSockets</span></h1>
+        <h1>Get <span>prizes</span></h1>
+      </div>
+
+      <div class="row">
+        <button class="submit">Submit your project</button>
+        <button class="guide">Read the guide</button>
+      </div>
+
+      <span id="scroll-for-more-info">Scroll for more details</span>
+    </div>
+
+    <div id="body">
+      <div id="how-it-works">
+        <h1 id="how">How it works</h1>
+
+        <div class="col">
+          <div class="row">
+            <h1>Build your website</h1>
+            <p>
+              It doesn't matter what you make - it could be checkers, or chess,
+              or battleship, or a canvas for people to draw on. Get an idea and
+              build it!
+            </p>
+          </div>
+          <div class="row">
+            <h1>Host it!</h1>
+            <p>
+              Host it on a VPS! If you don't have access to a VPS, you can just
+              leave instructions to set it up locally in the Readme and I'll run
+              it on my computer to test it out.
+            </p>
+          </div>
+          <div class="row">
+            <h1>Submit it!</h1>
+            <p>
+              Submit your project for grading and receive Packets (Fanout's
+              currency) to spend on items in the shop!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div id="requirements">
+        <h1>Requirement</h1>
+
+        <p>
+          The only requirement is that it uses Fanout for horizontal scaling of
+          websockets.
+          <br />
+          The idea is to learn how to horizontally scale websockets with Fanout -
+          a method of scaling websockets (read the guide if you have no clue how to
+          make websockets scale horizontally with fanout). It doesn't matter what
+          you make - it could be checkers, or chess, or battleship, or a canvas for
+          people to draw on. As long as the backend uses fanout to scale, it will
+          be accepted!
+        </p>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<script>
+  document.getElementById("hclogo")?.addEventListener("click", () => {
+    location.href = "https://hackclub.com";
+  });
+</script>
+
+<style lang="scss">
+  #hclogo {
+    position: fixed;
+    top: 0px;
+    left: 20px;
+
+    width: clamp(125px, 20vw, 200px);
+    z-index: 99;
+
+    &:hover {
+      cursor: click;
+      transform: translateY(-6px);
+    }
+  }
+
+  main {
+    .hero-header {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      padding-left: clamp(20px, 10vw, 200px);
+
+      height: 100vh;
+      z-index: 1;
+
+      .tagline {
+        padding-bottom: 2rem;
+        h1 {
+          width: 100%;
+          color: #fff;
+          font-size: clamp(10px, 7.5vw, 5rem);
+
+          text-box-trim: trim-both;
+
+          span {
+            color: #401183;
+          }
+        }
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        .submit {
+          background-color: #401183;
+        }
+
+        .guide {
+          color: #401183;
+          background-color: #fff;
+        }
+      }
+
+      #scroll-for-more-info {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-size: 1.25rem;
+        color: #fff;
+      }
+    }
+  }
+  #body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: calc(800px - 30px * 2);
+
+    #how-it-works {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+
+      color: #401183;
+      padding-bottom: 5rem;
+
+      h1 {
+        font-size: clamp(10px, 6vw, 4rem);
+        width: fit-content;
+      }
+
+      #how {
+        font-size: clamp(10px, 7.5vw, 5rem);
+      }
+
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        .row {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: center;
+          padding: 1rem;
+          border-radius: 12px;
+
+          background: #b5b3f6;
+
+          p {
+            font-size: 24px;
+            text-align: center;
+            text-wrap-style: balance;
+          }
+        }
+      }
+    }
+
+    .separator {
+      height: 2px;
+      width: 100%;
+
+      background-color: color-mix(in oklab, #401183 30%, transparent 70%);
+    }
+
+    #requirements {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+
+      color: #401183;
+      margin-bottom: 5rem;
+
+      padding: 1rem;
+      border-radius: 12px;
+
+      background: #b5b3f6;
+
+      h1 {
+        font-size: clamp(10px, 7.5vw, 5rem);
+      }
+
+      p {
+        font-size: 24px;
+        text-align: center;
+        text-wrap-style: balance;
+      }
+    }
+  }
+</style>
