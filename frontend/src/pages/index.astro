@@ -22,6 +22,14 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div id="body">
+      <div id="what-is">
+        <h1>What is Fanout?</h1>
+
+        <p>
+          Fanout is a YSWS made to teach how to horizontally scale websockets.
+        </p>
+      </div>
+
       <div id="requirements">
         <h1>What counts?</h1>
 
@@ -148,6 +156,20 @@ import Layout from "../layouts/Layout.astro";
     margin-left: auto;
     margin-right: auto;
     max-width: calc(800px - 30px * 2);
+
+    #what-is {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+
+      color: #401183;
+      padding-bottom: 5rem;
+      background: #b5b3f6;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 24px;
+    }
 
     #how-it-works {
       display: flex;
